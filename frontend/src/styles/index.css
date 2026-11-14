@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens: HSL channels, consumed through tailwind.config.ts as `hsl(var(--x) / <alpha>)`. */
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --surface: 0 0% 100%;
+    --surface-muted: 220 16% 94%;
+    --foreground: 224 30% 12%;
+    --muted: 220 9% 40%;
+    --border: 220 14% 88%;
+    --ring: 243 75% 59%;
+    --primary: 243 75% 55%;
+    --primary-foreground: 0 0% 100%;
+    --danger: 0 72% 48%;
+    --danger-foreground: 0 0% 100%;
+    --success: 152 60% 32%;
+    --warning: 32 90% 40%;
+    color-scheme: light;
+  }
+
+  .dark {
+    --background: 224 28% 8%;
+    --surface: 224 24% 12%;
+    --surface-muted: 224 20% 17%;
+    --foreground: 220 20% 94%;
+    --muted: 220 12% 66%;
+    --border: 224 16% 22%;
+    --ring: 243 90% 72%;
+    --primary: 243 90% 75%;
+    --primary-foreground: 224 30% 8%;
+    --danger: 0 80% 62%;
+    --danger-foreground: 224 30% 8%;
+    --success: 152 55% 50%;
+    --warning: 38 92% 58%;
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  /* One consistent, always-visible keyboard focus ring. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
